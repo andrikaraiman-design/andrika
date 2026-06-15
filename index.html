@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison Dorée - Mad Dope Premium</title>
+    
+    <!-- MENGHUBUNGKAN CSS BAWAAN TEMPLATE -->
+    <link rel="stylesheet" href="template-maison-style.css">
+    
+    <style>
+        /* Kustomisasi Tambahan untuk Konten Produk Anda agar proporsional */
+        .promo-banner {
+            max-width: 320px; /* Ukuran gambar yang sudah dikecilkan sesuai permintaan */
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .promo-banner img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        .product-details {
+            padding: 20px;
+        }
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        .new-price {
+            color: #b5835a; /* Aksen warna emas khas Maison Dorée */
+            font-weight: 700;
+            font-size: 1.6rem;
+        }
+        .product-description p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        /* Penyelaras struktur navigasi mobile */
+        .mobile-nav, .mobile-overlay {
+            display: none;
+        }
+        .mobile-nav.active, .mobile-overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. HEADER (Dibutuhkan oleh JS untuk Efek Scroll 'scrolled') -->
+    <header id="header" style="position: fixed; top: 0; width: 100%; z-index: 1000; transition: background 0.3s;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+            <div class="logo">
+                <a href="#" style="font-weight: 700; font-size: 1.5rem; letter-spacing: 2px; text-decoration: none; color: #1a1a1a;">MAISON DORÉE</a>
+            </div>
+            <!-- Tombol Navigasi Desktop & Mobile -->
+            <button id="menuToggle" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">☰</button>
+        </div>
+    </header>
+
+    <!-- 2. NAVIGASI MOBILE (Dibutuhkan oleh JS Menu Mobile) -->
+    <div id="mobileOverlay" class="mobile-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9998;"></div>
+    <nav id="mobileNav" class="mobile-nav" style="position: fixed; top: 0; right: 0; width: 300px; height: 100%; background: #fff; z-index: 9999; padding: 40px 20px;">
+        <button id="mobileNavClose" style="background: none; border: none; font-size: 1.5rem; float: right; cursor: pointer;">✕</button>
+        <div class="mobile-nav-links" style="margin-top: 60px; display: flex; flex-direction: column; gap: 20px;">
+            <a href="#" style="text-decoration: none; color: #333; font-weight: 500;">Home</a>
+            <a href="#produk" style="text-decoration: none; color: #333; font-weight: 500;">Product</a>
+            <a href="#appointmentSection" style="text-decoration: none; color: #333; font-weight: 500;">Appointment</a>
+        </div>
+    </nav>
+
+    <!-- 3. HERO SLIDESHOW SECTION (Dibutuhkan oleh JS Slideshow) -->
+    <section class="hero" style="padding-top: 120px; text-align: center; background: #fcfbfa; padding-bottom: 60px;">
+        <div class="container">
+            <!-- Data Title dan Price di bawah ini dibaca otomatis secara berkala oleh JS slideshow Anda -->
+            <div class="hero-slide active" data-title="Mad Dope Streetwear" data-price="Rp 139.000"></div>
+            <div class="hero-slide" data-title="Premium Cotton Combed" data-price="Diskon Terbatas"></div>
+            <div class="hero-slide" data-title="Maison Dorée Exclusive" data-price="Koleksi Terbaru"></div>
+            
+            <h1 id="heroTitle" style="font-size: 3rem; font-weight: 700; transition: opacity 0.5s; letter-spacing: 2px;">Mad Dope</h1>
+            <p id="heroPrice" style="font-size: 1.5rem; color: #b5835a; transition: opacity 0.5s; font-weight: 600; margin-top: 10px;">Rp 139.000</p>
+        </div>
+    </section>
+
+    <!-- 4. MAIN PRODUCT SECTION (Mendukung Efek Animasi Muncul Otomatis dari JS) -->
+    <section id="produk" style="padding: 80px 0; background: #fff;">
+        <div class="container">
+            <div class="row align-items-center" style="display: flex; flex-wrap: wrap; gap: 40px;">
+                
+                <!-- Kolom Kiri: Gambar Poster Produk (Sudah Diperkecil Maksimal 320px) -->
+                <div class="col-lg-6" style="flex: 1; min-width: 300px;">
+                    <div class="promo-banner">
+                        <img src="images/350.jpg" alt="Kaos Premium Mad Dope">
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Deskripsi Analisis Promosi -->
+                <div class="col-lg-6" style="flex: 1; min-width: 300px;">
+                    <div class="product-details">
+                        <h2 style="font-size: 2.2rem; font-weight: 600; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px;">Edisi Spesial Kaos Casual</h2>
+                        <div style="margin-bottom: 25px;">
+                            <span class="old-price">Rp 199.000</span>
+                            <span class="new-price">Rp 139.000</span>
+                        </div>
+                        <div class="product-description">
+                            <p>Poster promosi ini menampilkan produk kaos streetwear bertema 'Had Dope' dengan konsep visual yang modern dan berani, sangat representatif bagi tren busana generasi muda saat ini.</p>
+                            <p>Produk kaos ini menonjolkan gaya casual yang cocok digunakan sehari-hari. Bahan katun premium yang digunakan memberikan kenyamanan ekstra sekaligus menjaga kekuatan jahitan agar tetap rapi dan tahan lama.</p>
+                            <p>Dari segi pemasaran, strategi penggunaan harga coret sangat efektif untuk menarik perhatian calon pembeli dan memicu keputusan belanja yang lebih cepat karena adanya penawaran nilai ekonomis yang signifikan.</p>
+                            <p>Secara keseluruhan, poster ini berhasil memadukan desain visual yang estetik dan bersih dengan penyampaian informasi promosi yang jelas, ringkas, serta bersifat persuasif.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FORM APPOINTMENT SECTION (Dibutuhkan oleh JS Form Submission Alert) -->
+    <section id="appointmentSection" style="padding: 80px 0; background: #fcfbfa; text-align: center;">
+        <div class="container" style="max-width: 500px; margin: 0 auto;">
+            <h2 style="margin-bottom: 15px; font-weight: 600;">Hubungi Kami / Konsultasi Ukuran</h2>
+            <p style="color: #666; margin-bottom: 30px;">Isi formulir di bawah untuk konfirmasi pesanan khusus atau panduan ukuran produk.</p>
+            <form id="appointmentForm" style="display: flex; flex-direction: column; gap: 15px;">
+                <input type="text" placeholder="Nama Lengkap" required style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                <input type="email" placeholder="Alamat Email" required style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                <textarea placeholder="Pesan atau Detail Ukuran Kaos" rows="4" required style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; resize: none;"></textarea>
+                <button type="submit" style="padding: 15px; background: #1a1a1a; color: #fff; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; letter-spacing: 1px;">KIRIM PERMINTAAN</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 6. JAVASCRIPT UTAMA TEMPLATE ANDA -->
+    <script src="templatemo-maison-doree.js"></script>
+</body>
+</html>
